@@ -1,14 +1,17 @@
+using System.Drawing;
+
 namespace levelup
 {
     public class GameController
     {
         // TODO: If your stakeholder wants to call this CHARACTER, change var name for
         // low representational gap
-        public readonly string DEFAULT_CHARACTER_NAME = "Character";
+        public readonly string DEFAULT_PLAYER_NAME = "Character";
 
         public record struct GameStatus(
             // TODO: Add other status data
-            String characterName
+            String playerName,
+            Point currentPosition
         );
 
         // TODO: Ensure this AND CLI commands match domain model
@@ -21,7 +24,8 @@ namespace levelup
 
         public GameController()
         {
-            status.characterName = DEFAULT_CHARACTER_NAME;
+            status.playerName = DEFAULT_PLAYER_NAME;
+            status.currentPosition = new Point(-1,-1);
         }
 
         // Pre-implemented to demonstrate ATDD
@@ -30,11 +34,11 @@ namespace levelup
         {
             if (name != null && !name.Equals(""))
             {
-                this.status.characterName = name;
+                this.status.playerName = name;
             }
             else
             {
-                this.status.characterName = DEFAULT_CHARACTER_NAME;
+                this.status.playerName = DEFAULT_PLAYER_NAME;
             }
         }
 
@@ -54,6 +58,11 @@ namespace levelup
         {
             //TODO: Implement move - should call something on another class
             //TODO: Should probably also update the game status
+        }
+
+        public void SetCharacterPoistion(Point coordinates)
+        {
+            //TODO:
         }
 
 

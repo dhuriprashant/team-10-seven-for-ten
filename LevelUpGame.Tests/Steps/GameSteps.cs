@@ -34,7 +34,7 @@ namespace DotNetExample.Tests.Steps
         [Then(@"the Game sets the character's name to (.*)")]
         public void ThenTheResultShouldBe(string characterNameOutput)
         {
-            testObj.GetStatus().characterName.Should().Be(characterNameOutput);
+            testObj.GetStatus().playerName.Should().Be(characterNameOutput);
         }
     }
 }
