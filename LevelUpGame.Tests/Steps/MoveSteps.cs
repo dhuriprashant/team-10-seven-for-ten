@@ -27,7 +27,7 @@ namespace DotNetExample.Tests.Steps
             this.startY = startY;
         }
 
-        [Given(@"the player chooses to move in (.*)")]
+        [Given(@"the player choses to move in (.*)")]
         public void givenPlayerChoosesDirection(string direction)
         {
             this.direction = (GameController.DIRECTION) Enum.Parse(typeof(GameController.DIRECTION), direction);
