@@ -25,5 +25,10 @@ namespace levelup
             Assert.AreEqual(0,actualStartingPosition.Coordinates.X);
             Assert.AreEqual(0,actualStartingPosition.Coordinates.Y);
         }
+
+        public void TestTotalPositions(){
+            Assert.AreEqual(100,testObj.getTotalPositions());
+            
+        }
     }
 }
