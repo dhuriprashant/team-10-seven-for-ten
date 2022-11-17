@@ -11,9 +11,10 @@ namespace DotNetExample.Tests.Steps
     public class MoveSteps
     {
         GameController testObj = new GameController();
-        int startX, startY, endX, endY;
+        int startX, startY, endX, endY, numberOfMovesBefore, numberOfMovesAfter ;
         GameController.DIRECTION direction;
         Point currentPosition;
+
 
         [Given(@"the character starts at position with XCoordinates (.*)")]
         public void givenTheCharacterStartsAtX(int startX)
@@ -25,6 +26,12 @@ namespace DotNetExample.Tests.Steps
         public void givenTheCharacterStartsAtY(int startY)
         {
             this.startY = startY;
+        }
+
+        [Given (@"the number of moves is (.*)")]
+        public void givenTheNumOfMovesBeforeMove(int numberOfMovesBefore)
+        {
+            this.numberOfMovesBefore = numberOfMovesBefore;
         }
 
         [Given(@"the player choses to move in (.*)")]
@@ -41,6 +48,7 @@ namespace DotNetExample.Tests.Steps
             testObj.Move(this.direction);
             GameController.GameStatus status = testObj.GetStatus();
             this.currentPosition = status.currentPosition;
+            this.numberOfMovesAfter = numberOfMovesBefore + 1;
 
         }
 
@@ -56,6 +64,14 @@ namespace DotNetExample.Tests.Steps
         {
             Assert.NotNull(this.currentPosition, "Expected position not null");
             Assert.AreEqual(endY, this.currentPosition.Y);
+        }
+
+        [Then(@"the new number of moves is (.*)")]
+        public void getNumberOfMoves(int numberOfMovesAfter)
+        {
+            Assert.NotNull(this.numberOfMovesAfter,"Expected number of moves not null");
+            Assert.AreNotEqual(this.numberOfMovesAfter, this.numberOfMovesBefore);
+            Assert.AreEqual(this.numberOfMovesAfter, this.numberOfMovesBefore + 1);
         }
     }
 
