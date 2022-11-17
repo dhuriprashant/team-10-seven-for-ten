@@ -3,8 +3,8 @@ Feature: Move in a direction
     I want to move my character. If they attempt to 
     move passed a boundry, the move results in no change in position.
 
-    @acceptance
-    Scenario Outline: Move in a direction
+@acceptance
+Scenario Outline: Move in a direction
     Given the character starts at position with XCoordinates <startingPositionX>
     And starts at YCoordinates <startingPositionY>
     And the player comes to move in <direction>

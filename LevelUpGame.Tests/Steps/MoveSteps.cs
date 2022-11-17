@@ -7,6 +7,7 @@ using NUnit.Framework;
 
 namespace DotNetExample.Tests.Steps
 {
+    [Binding]
     public class MoveSteps
     {
         GameController testObj = new GameController();
