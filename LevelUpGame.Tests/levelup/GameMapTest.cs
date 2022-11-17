@@ -20,9 +20,10 @@ namespace levelup
 #pragma warning disable CS8602 // Rethrow to preserve stack details
             
             testObj.Init ();
-
+            Position actualStartingPosition = testObj.startingPoition;
             Assert.AreEqual(100,testObj.numPositions);
-            
+            Assert.AreEqual(0,actualStartingPosition.Coordinates.X);
+            Assert.AreEqual(0,actualStartingPosition.Coordinates.Y);
         }
     }
 }
