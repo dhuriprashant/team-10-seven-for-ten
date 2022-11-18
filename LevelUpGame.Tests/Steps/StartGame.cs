@@ -9,6 +9,7 @@ namespace DotNetExample.Tests.Steps
     [Binding]
     public class StartGame
     {
+        /*
         GameController testObj = new GameController();
         string characterNameBefore;
         int numPositionsBefore, xPositionBefore, yPositionBefore, numberOfMovesBefore, numPositionsAfter, xPositionAfter, yPositionAfter, numberOfMovesAfter;
@@ -75,10 +76,10 @@ namespace DotNetExample.Tests.Steps
         [Then(@"the current y position should be (.*)")]
         public void checkYCoordinates(int endY)
         {
-            /*
+            
             Assert.NotNull(this.currentPosition, "Expected position not null");
             Assert.AreEqual(endY, this.currentPosition.Y);
-            */
+            
         }
 
         [Then(@"the number of moves after initiliazation is (.*)")]
@@ -86,7 +87,7 @@ namespace DotNetExample.Tests.Steps
         {
             Assert.AreEqual(0, numberOfMovesAfter);
         }
-
+        */
         
     }
 

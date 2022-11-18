@@ -7,6 +7,7 @@ namespace levelup
     [TestFixture]
     public class PositionTest{
 
+/*
         private Position? testObj;
 
         [Test]
@@ -21,7 +22,7 @@ namespace levelup
             Assert.AreEqual(1,actualCoordinate.X);
             Assert.AreEqual(2,actualCoordinate.Y);
             
-        }
+        }*/
 
     }
 }

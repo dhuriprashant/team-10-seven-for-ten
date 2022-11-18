@@ -1,9 +1,7 @@
-using TechTalk.SpecFlow;
-using levelup;
-using System.Drawing;
 using System;
-using FluentAssertions;
+using levelup;
 using NUnit.Framework;
+using TechTalk.SpecFlow;
 
 namespace DotNetExample.Tests.Steps
 {
@@ -11,10 +9,9 @@ namespace DotNetExample.Tests.Steps
     public class MoveSteps
     {
         GameController testObj = new GameController();
-        int startX, startY, endX, endY, numberOfMovesBefore, numberOfMovesAfter ;
+        int startX, startY;
         GameController.DIRECTION direction;
-        Point currentPosition;
-
+        int currentPositionX, currentPositionY;
 
         [Given(@"the character starts at position with XCoordinates (.*)")]
         public void givenTheCharacterStartsAtX(int startX)
@@ -22,56 +19,39 @@ namespace DotNetExample.Tests.Steps
             this.startX = startX;
         }
 
-        [Given (@"starts at YCoordinates (.*)")]
+        [Given(@"starts at YCoordinates (.*)")]
         public void givenTheCharacterStartsAtY(int startY)
         {
             this.startY = startY;
         }
 
-        [Given (@"the number of moves is (.*)")]
-        public void givenTheNumOfMovesBeforeMove(int numberOfMovesBefore)
-        {
-            this.numberOfMovesBefore = numberOfMovesBefore;
+        [Given(@"the player chooses to move in (.*)")]
+        public void givenPlayerChoosesDirection(String direction) {
+            this.direction = (GameController.DIRECTION) Enum.Parse(typeof(GameController.DIRECTION) , direction);
         }
 
-        [Given(@"the player choses to move in (.*)")]
-        public void givenPlayerChoosesDirection(string direction)
-        {
-            this.direction = (GameController.DIRECTION) Enum.Parse(typeof(GameController.DIRECTION), direction);
-
-        }
-
-        [When (@"the character moves")]
+        [When(@"the character moves")]
         public void whenTheCharacterMoves()
         {
-            testObj.SetCharacterPoistion(new Point(this.startX, this.startY));
+            testObj.SetCharacterPosition(this.startX, this.startY);
             testObj.Move(this.direction);
             GameController.GameStatus status = testObj.GetStatus();
-            this.currentPosition = status.currentPosition;
-            this.numberOfMovesAfter = numberOfMovesBefore + 1;
-
+            this.currentPositionX = status.currentPosition.x;
+            this.currentPositionY = status.currentPosition.y;
         }
 
         [Then(@"the character is now at position with XCoordinates (.*)")]
         public void checkXCoordinates(int endX)
         {
-            Assert.NotNull(this.currentPosition, "Expected position not null");
-            Assert.AreEqual(endX, this.currentPosition.X);
+            Assert.NotNull(this.currentPositionX, "Expected position not null" );
+            Assert.AreEqual(endX, this.currentPositionX);
         }
 
-        [Then(@"YCoordinates (.*)")]
+        [Then(@"YCoordinates  (.*)")]
         public void checkYCoordinates(int endY)
         {
-            Assert.NotNull(this.currentPosition, "Expected position not null");
-            Assert.AreEqual(endY, this.currentPosition.Y);
+            Assert.NotNull(this.currentPositionY, "Expected position not null");
+            Assert.AreEqual(endY, this.currentPositionY);
         }
-
-        [Then(@"the new number of moves (.*)")]
-         public void ThenTheNewNumberOfMoves(int numberOfMovesAfter)
-         {
-            Assert.NotNull(this.numberOfMovesAfter,"Expected number of moves not null");
-            Assert.AreNotEqual(this.numberOfMovesAfter, this.numberOfMovesBefore);
-            Assert.AreEqual(this.numberOfMovesAfter, this.numberOfMovesBefore + 1);
-         }
     }
 }

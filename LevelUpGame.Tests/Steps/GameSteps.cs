@@ -25,8 +25,8 @@ namespace DotNetExample.Tests.Steps
             this.characterName = characterNameInput;
         }
 
-        [When(@"the character sets their name")]
-        public void whenTheCharacterSetsTheirName()
+        [When(@"the player sets their name")]
+        public void whenThePlayerSetsTheirName()
         {
             testObj = new GameController();
             testObj.CreateCharacter(characterName);
@@ -34,7 +34,7 @@ namespace DotNetExample.Tests.Steps
         [Then(@"the Game sets the character's name to (.*)")]
         public void ThenTheResultShouldBe(string characterNameOutput)
         {
-            testObj.GetStatus().playerName.Should().Be(characterNameOutput);
+            testObj.GetStatus().characterName.Should().Be(characterNameOutput);
         }
     }
 }

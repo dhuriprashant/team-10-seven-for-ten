@@ -27,7 +27,7 @@ namespace DotNetExample.Tests.Steps
 
         [Then(@"assign character default name (.*)")]
         public void setDefaultCharacterName(string Name){
-            Assert.NotNull(this.Name, testObj.GetStatus().playerName);
+            Assert.NotNull(this.Name, testObj.GetStatus().characterName);
         }
     }
 

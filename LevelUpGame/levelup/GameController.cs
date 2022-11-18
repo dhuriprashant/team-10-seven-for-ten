@@ -1,18 +1,18 @@
-using System.Drawing;
+
 
 namespace levelup
 {
     public class GameController
     {
-        // TODO: If your stakeholder wants to call this CHARACTER, change var name for
-        // low representational gap
-        public readonly string DEFAULT_PLAYER_NAME = "Character";
-        private int numPositions;
+        public readonly string DEFAULT_CHARACTER_NAME = "Erin";
+        public Character? character { get; set; }
+        public GameMap? gameMap { get; set; }
 
         public record struct GameStatus(
             // TODO: Add other status data
-            String playerName,
-            Point currentPosition
+            String characterName,
+            Position currentPosition,
+            int moveCount
         );
 
         // TODO: Ensure this AND CLI commands match domain model
@@ -25,30 +25,35 @@ namespace levelup
 
         public GameController()
         {
-            status.playerName = DEFAULT_PLAYER_NAME;
-            status.currentPosition = new Point(-1,-1);
-            numPositions = 100;
+            status.characterName = DEFAULT_CHARACTER_NAME;
+            //Set current position to a nonsense place until you figure out who should initialize
+            status.currentPosition = new Position(-1,-1);
+            status.moveCount = 0;
         }
 
-        // Pre-implemented to demonstrate ATDD
-        // TODO: Update this if it does not match your design
         public void CreateCharacter(String name)
         {
             if (name != null && !name.Equals(""))
             {
-                this.status.playerName = name;
+                this.character = new Character(name);   
             }
             else
             {
-                this.status.playerName = DEFAULT_PLAYER_NAME;
+                this.character = new Character(DEFAULT_CHARACTER_NAME);
             }
+            this.status.characterName = character.Name;
         }
 
         public void StartGame()
         {
-            // TODO: Implement startGame - Should probably create tiles and put the character
-            // on them?
-            // TODO: Should also update the game status?
+            gameMap = new GameMap();
+            if (character == null)
+            {
+                CreateCharacter("");
+            }
+            character.EnterMap(gameMap);
+            this.status.characterName = character.Name;
+            this.status.currentPosition = character.Position;
         }
 
         public GameStatus GetStatus()
@@ -58,19 +63,15 @@ namespace levelup
 
         public void Move(DIRECTION directionToMove)
         {
-            //TODO: Implement move - should call something on another class
-            //TODO: Should probably also update the game status
+            character.Move(directionToMove);
+            this.status.currentPosition = character.Position;
+            this.status.moveCount = character.moveCount;
         }
 
-        public void SetCharacterPoistion(Point coordinates)
+        public void SetCharacterPosition(int x, int y)
         {
-            //TODO:
+            //TODO: IMPLEMENT THIS TO SET CHARACTERS CURRENT POSITION -- exists to be testable
         }
-
-        public int getTotalPositions(){
-            return numPositions;
-        }
-
 
     }
 }
