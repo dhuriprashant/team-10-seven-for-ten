@@ -20,5 +20,11 @@ namespace levelup
 #pragma warning disable CS8602 // Rethrow to preserve stack details
             Assert.IsNotNull(testObj.GetStatus());
         }
+
+        [Test]
+        public void TestTotalPositions()
+        {
+            Assert.AreEqual(100,testObj.getTotalPositions());
+        }
     }
 }

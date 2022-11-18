@@ -84,9 +84,7 @@ namespace DotNetExample.Tests.Steps
         [Then(@"the number of moves after initiliazation is (.*)")]
         public void getNumberOfMoves(int numberOfMovesAfter)
         {
-            Assert.NotNull(this.numberOfMovesAfter,"Expected number of moves not null");
-            Assert.AreNotEqual(this.numberOfMovesAfter, this.numberOfMovesBefore);
-            Assert.AreEqual(this.numberOfMovesAfter, this.numberOfMovesBefore + 1);
+            Assert.AreEqual(0, numberOfMovesAfter);
         }
 
         

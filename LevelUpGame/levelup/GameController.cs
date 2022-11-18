@@ -7,6 +7,7 @@ namespace levelup
         // TODO: If your stakeholder wants to call this CHARACTER, change var name for
         // low representational gap
         public readonly string DEFAULT_PLAYER_NAME = "Character";
+        private int numPositions;
 
         public record struct GameStatus(
             // TODO: Add other status data
@@ -26,6 +27,7 @@ namespace levelup
         {
             status.playerName = DEFAULT_PLAYER_NAME;
             status.currentPosition = new Point(-1,-1);
+            numPositions = 100;
         }
 
         // Pre-implemented to demonstrate ATDD
@@ -66,8 +68,7 @@ namespace levelup
         }
 
         public int getTotalPositions(){
-            //TODO:
-            return -1;
+            return numPositions;
         }
 
 
