@@ -10,8 +10,9 @@ namespace DotNetExample.Tests.Steps
     public class StartGame
     {
         GameController testObj = new GameController();
-        string characterNameBefore, characterNameAfter;
+        string characterNameBefore;
         int numPositionsBefore, xPositionBefore, yPositionBefore, numberOfMovesBefore, numPositionsAfter, xPositionAfter, yPositionAfter, numberOfMovesAfter;
+        GameController.GameStatus gameStatus;
 
         
         [Given(@"the character name is (.*)")]
@@ -49,20 +50,19 @@ namespace DotNetExample.Tests.Steps
         public void whenGameStarts()
         {
             testObj.StartGame();
+            gameStatus = testObj.GetStatus();
         }
 
         [Then(@"the character name should be (.*)")]
         public void checkCharacterName(string characterNameAfter)
         {
-            Assert.NotNull(this.characterNameAfter, "Expected character name not null");
-            Assert.AreEqual("DEFAULT_NAME", this.characterNameAfter);
+            StringAssert.AreEqualIgnoringCase(characterNameAfter, this.gameStatus.playerName);
         }
 
         [Then(@"the number of positions will be (.*)")]
         public void checkNumberOfPositions(int endX)
         {
-            Assert.NotNull(this.numPositionsAfter, "Expected number of position not null");
-            Assert.AreEqual(xPositionAfter, 100);
+            Assert.AreEqual(endX, testObj.getTotalPositions());
         }
 
         [Then(@"the current x position should be (.*)")]

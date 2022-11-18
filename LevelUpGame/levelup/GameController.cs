@@ -65,7 +65,10 @@ namespace levelup
             //TODO:
         }
 
-
+        public int getTotalPositions(){
+            //TODO:
+            return -1;
+        }
 
 
     }

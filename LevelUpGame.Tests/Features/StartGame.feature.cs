@@ -76,7 +76,7 @@ namespace LevelUpGame.Test.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Start the game")]
         [NUnit.Framework.CategoryAttribute("acceptance")]
-        [NUnit.Framework.TestCaseAttribute("", "0", "0", "0", "0", "DEFAULT_NAME", "100", "0", "0", "0", null)]
+        [NUnit.Framework.TestCaseAttribute("", "0", "0", "0", "0", "Character", "100", "0", "0", "0", null)]
         public void StartTheGame(string characterNameBefore, string numPositionsBefore, string xPositionBefore, string yPositionBefore, string numberOfMovesBefore, string characterNameAfter, string numPositionsAfter, string xPositionAfter, string yPositionAfter, string numberOfMovesAfter, string[] exampleTags)
         {
             string[] @__tags = new string[] {

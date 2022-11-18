@@ -15,4 +15,4 @@ Scenario Outline: Start the game
     And the number of moves after initiliazation is <numberOfMovesAfter>
     Examples:
         | characterNameBefore | numPositionsBefore | xPositionBefore | yPositionBefore | numberOfMovesBefore | characterNameAfter | numPositionsAfter | xPositionAfter | yPositionAfter | numberOfMovesAfter |
-        |  | 0 | 0 | 0 | 0 | DEFAULT_NAME | 100 | 0 | 0 | 0 |
+        |  | 0 | 0 | 0 | 0 | Character | 100 | 0 | 0 | 0 |
