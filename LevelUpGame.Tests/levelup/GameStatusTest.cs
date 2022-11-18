@@ -7,24 +7,27 @@ namespace levelup
     [TestFixture]
     public class GameStatusTest{
         private Position? testObj;
-        String Name;
+        string Name;
         int numberOfMoves;
             
         [Test]
         public void IsNameHaveValue(){
+            /*
             testName = new Name();
 
             Assert.NotNull(testName.Name);
+            */
         }
 
         [Test]
         public void NumberOfMoves() {
+            /*
             testMoves = new NumberOfMoves();
 
             Assert.NotNull(testMoves.NumberOfMoves);
+            */
         }
 
-        [
-            
-        ]
+    }
+}
         
