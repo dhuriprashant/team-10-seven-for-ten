@@ -11,4 +11,4 @@ Scenario Outline: Name Character
     Then assign character default name <Name>
     Examples:
         |startingName | Name |
-        | null | DEFAULT_NAME |
+        |  | DEFAULT_NAME |

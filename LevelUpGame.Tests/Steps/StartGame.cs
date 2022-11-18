@@ -13,13 +13,15 @@ namespace DotNetExample.Tests.Steps
         string characterNameBefore, characterNameAfter;
         int numPositionsBefore, xPositionBefore, yPositionBefore, numberOfMovesBefore, numPositionsAfter, xPositionAfter, yPositionAfter, numberOfMovesAfter;
 
-        [Given(@"The character name is (.*)")]
+        
+        [Given(@"the character name is (.*)")]
         public void givenThecharacterNameBefore(string characterNameBefore)
         {
             this.characterNameBefore = characterNameBefore;
         }
 
-        [Given(@"The number of positions is (.*)")]
+
+        [Given(@"number of positions is (.*)")]
         public void givenTheNumPositionsBefore(int numPositionsBefore)
         {
             this.numPositionsBefore = numPositionsBefore;
@@ -43,13 +45,13 @@ namespace DotNetExample.Tests.Steps
             this.numberOfMovesBefore = numberOfMovesBefore;
         }
 
-        [When (@"the game starts")]
-        public void whenTheGameStarts()
+        [When (@"game starts")]
+        public void whenGameStarts()
         {
             testObj.StartGame();
         }
 
-        [Then(@"The character name is (.*)")]
+        [Then(@"the character name should be (.*)")]
         public void checkCharacterName(string characterNameAfter)
         {
             Assert.NotNull(this.characterNameAfter, "Expected character name not null");
@@ -63,28 +65,31 @@ namespace DotNetExample.Tests.Steps
             Assert.AreEqual(xPositionAfter, 100);
         }
 
-        [Then(@"the character is now at position with XCoordinates (.*)")]
+        [Then(@"the current x position should be (.*)")]
         public void checkXCoordinates(int endX)
         {
             Assert.NotNull(this.xPositionAfter, "Expected position not null");
             Assert.AreEqual(xPositionAfter, this.xPositionAfter);
         }
 
-        [Then(@"YCoordinates (.*)")]
+        [Then(@"the current y position should be (.*)")]
         public void checkYCoordinates(int endY)
         {
             /*
             Assert.NotNull(this.currentPosition, "Expected position not null");
-            Assert.AreEqual(endY, this.currentPosition.Y);*/
+            Assert.AreEqual(endY, this.currentPosition.Y);
+            */
         }
 
-        [Then(@"the new number of moves is (.*)")]
+        [Then(@"the number of moves after initiliazation is (.*)")]
         public void getNumberOfMoves(int numberOfMovesAfter)
         {
             Assert.NotNull(this.numberOfMovesAfter,"Expected number of moves not null");
             Assert.AreNotEqual(this.numberOfMovesAfter, this.numberOfMovesBefore);
             Assert.AreEqual(this.numberOfMovesAfter, this.numberOfMovesBefore + 1);
         }
+
+        
     }
 
 

@@ -77,7 +77,7 @@ namespace LevelUpGame.Test.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Name Character")]
         [NUnit.Framework.CategoryAttribute("acceptance")]
-        [NUnit.Framework.TestCaseAttribute("null", "DEFAULT_NAME", null)]
+        [NUnit.Framework.TestCaseAttribute("", "DEFAULT_NAME", null)]
         public void NameCharacter(string startingName, string name, string[] exampleTags)
         {
             string[] @__tags = new string[] {

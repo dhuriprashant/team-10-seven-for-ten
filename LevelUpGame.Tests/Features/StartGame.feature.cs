@@ -109,7 +109,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 5
-    testRunner.Given(string.Format("The character name is {0}", characterNameBefore), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("the character name is {0}", characterNameBefore), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 6
     testRunner.And(string.Format("number of positions is {0}", numPositionsBefore), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -124,19 +124,19 @@ this.ScenarioInitialize(scenarioInfo);
     testRunner.And(string.Format("the number of moves before initiliazation is {0}", numberOfMovesBefore), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 10
-    testRunner.When("the game starts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("game starts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 11
-    testRunner.Then(string.Format("The character name is {0}", characterNameAfter), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then(string.Format("the character name should be {0}", characterNameAfter), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 12
     testRunner.And(string.Format("the number of positions will be {0}", numPositionsAfter), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 13
-    testRunner.And(string.Format("the current x position is {0}", xPositionAfter), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And(string.Format("the current x position should be {0}", xPositionAfter), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 14
-    testRunner.And(string.Format("the current y position is {0}", yPositionAfter), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And(string.Format("the current y position should be {0}", yPositionAfter), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 15
     testRunner.And(string.Format("the number of moves after initiliazation is {0}", numberOfMovesAfter), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

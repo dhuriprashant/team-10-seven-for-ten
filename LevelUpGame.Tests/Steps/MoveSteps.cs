@@ -66,14 +66,12 @@ namespace DotNetExample.Tests.Steps
             Assert.AreEqual(endY, this.currentPosition.Y);
         }
 
-        [Then(@"the new number of moves is (.*)")]
-        public void getNumberOfMoves(int numberOfMovesAfter)
-        {
+        [Then(@"the new number of moves (.*)")]
+         public void ThenTheNewNumberOfMoves(int numberOfMovesAfter)
+         {
             Assert.NotNull(this.numberOfMovesAfter,"Expected number of moves not null");
             Assert.AreNotEqual(this.numberOfMovesAfter, this.numberOfMovesBefore);
             Assert.AreEqual(this.numberOfMovesAfter, this.numberOfMovesBefore + 1);
-        }
+         }
     }
-
-
 }

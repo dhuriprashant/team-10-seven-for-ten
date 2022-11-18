@@ -10,26 +10,25 @@ namespace DotNetExample.Tests.Steps
     [Binding]
     public class CharacterSteps
     {
-        /*
         static String DEFAULT_NAME = "LevelUpPlayer";
-        String Name = "";
+        string Name = "";
         GameController testObj = new GameController();
 
-        [Given(@"the character has no name")]
+        [Given(@"the character has no name (.*)")]
         public void givenCharacterHasNoName(string startingName)
         {
-        this.Name = startingName;
+            this.Name = startingName;
         }
 
         [When (@"the game starts")]
         public void whenTheGameStarts(){
-            testObj.startGame();
+            testObj.StartGame();
         }
 
-        [Then(@"assign character default name")]
+        [Then(@"assign character default name (.*)")]
         public void setDefaultCharacterName(string Name){
-            Assert.NotNull(this.Name, testObj.getStatus().Name);
-        }*/
+            Assert.NotNull(this.Name, testObj.GetStatus().playerName);
+        }
     }
 
 }
