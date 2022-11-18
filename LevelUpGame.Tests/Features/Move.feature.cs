@@ -77,9 +77,12 @@ namespace LevelUpGame.Test.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Move in a direction")]
         [NUnit.Framework.CategoryAttribute("acceptance")]
-        [NUnit.Framework.TestCaseAttribute("0", "0", "NORTH", "0", "1", null)]
-        [NUnit.Framework.TestCaseAttribute("0", "0", "SOUTH", "0", "0", null)]
-        public void MoveInADirection(string startingPositionX, string startingPositionY, string direction, string endingPositionX, string endingPositionY, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("0", "0", "0", "NORTH", "0", "1", "1", null)]
+        [NUnit.Framework.TestCaseAttribute("0", "0", "4", "SOUTH", "0", "0", "5", null)]
+        [NUnit.Framework.TestCaseAttribute("5", "4", "97", "EAST", "6", "4", "98", null)]
+        [NUnit.Framework.TestCaseAttribute("9", "4", "33", "EAST", "9", "4", "34", null)]
+        [NUnit.Framework.TestCaseAttribute("4", "9", "43", "NORTH", "4", "9", "44", null)]
+        public void MoveInADirection(string startingPositionX, string startingPositionY, string startingMoveCount, string direction, string endingPositionX, string endingPositionY, string endingMoveCount, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "acceptance"};
@@ -91,9 +94,11 @@ namespace LevelUpGame.Test.Features
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("startingPositionX", startingPositionX);
             argumentsOfScenario.Add("startingPositionY", startingPositionY);
+            argumentsOfScenario.Add("startingMoveCount", startingMoveCount);
             argumentsOfScenario.Add("direction", direction);
             argumentsOfScenario.Add("endingPositionX", endingPositionX);
             argumentsOfScenario.Add("endingPositionY", endingPositionY);
+            argumentsOfScenario.Add("endingMoveCount", endingMoveCount);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Move in a direction", "    Simple example of how to test move", tagsOfScenario, argumentsOfScenario, featureTags);
 #line 5
 this.ScenarioInitialize(scenarioInfo);
@@ -112,16 +117,22 @@ this.ScenarioInitialize(scenarioInfo);
     testRunner.And(string.Format("starts at YCoordinates {0}", startingPositionY), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 10
-    testRunner.And(string.Format("the player chooses to move in {0}", direction), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And(string.Format("the current move count is {0}", startingMoveCount), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 11
-    testRunner.When("the character moves", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.And(string.Format("the player chooses to move in {0}", direction), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 12
-    testRunner.Then(string.Format("the character is now at position with XCoordinates {0}", endingPositionX), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.When("the character moves", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 13
+    testRunner.Then(string.Format("the character is now at position with XCoordinates {0}", endingPositionX), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 14
     testRunner.And(string.Format("YCoordinates  {0}", endingPositionY), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 15
+    testRunner.And(string.Format("ending move count {0}", endingMoveCount), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
