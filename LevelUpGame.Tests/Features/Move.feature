@@ -1,19 +1,18 @@
-Feature: Move in a direction
-
-    I want to move my character. If they attempt to 
-    move passed a boundry, the move results in no change in position.
+Feature: Move
+    I want to move my character. If they attempt to move past a boundary, the move results in no change in position.
 
 @acceptance
 Scenario Outline: Move in a direction
+    Simple example of how to test move
+
     Given the character starts at position with XCoordinates <startingPositionX>
     And starts at YCoordinates <startingPositionY>
-    And the number of moves is <numOfMovesBeforeMove>
-    And the player choses to move in <direction>
+    And the player chooses to move in <direction>
     When the character moves
     Then the character is now at position with XCoordinates <endingPositionX>
-    And YCoordinates <endingPositionY>
-    And the new number of moves <numOfMovesAfterMove> 
+    And YCoordinates  <endingPositionY>
     Examples:
-        |startingPositionX | startingPositionY | numOfMovesBeforeMove | direction | endingPositionX | endingPositionY | numOfMovesAfterMove |
-        | 0 | 0 | 0 | NORTH | 0 | 1 | 1 |
-        | 0 | 0 | 1 | SOUTH | 0 | 0 | 2 |
+
+        | startingPositionX | startingPositionY | direction | endingPositionX | endingPositionY |
+        | 0                 | 0                 | NORTH     | 0               | 1               |
+        | 0 | 0 | SOUTH | 0 | 0 |
