@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using levelup;
+using System.Drawing;
 
 namespace levelup
 {
@@ -28,6 +29,11 @@ namespace levelup
 
         public void TestTotalPositions(){
             Assert.AreEqual(100,testObj.getTotalPositions());
+
+        }
+
+        public void TestIsValidPosition(){
+            Assert.AreEqual(false,testObj.isPositionValid(new Point(2,2)));
             
         }
     }

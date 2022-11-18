@@ -1,3 +1,5 @@
+using System.Drawing;
+
 namespace levelup
 {
     public class GameMap{
@@ -16,6 +18,14 @@ namespace levelup
 
         public int getTotalPositions(){
             return this.numPositions;
+        }
+        public bool isPositionValid (Point positionCoordinates){
+            if (positionCoordinates.X > this.numPositions-1 && positionCoordinates.X < 0){
+                return false;
+            }
+
+            return false;
+
         }
     }
 }
