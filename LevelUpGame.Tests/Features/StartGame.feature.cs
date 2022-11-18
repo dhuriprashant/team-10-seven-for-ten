@@ -76,8 +76,8 @@ namespace LevelUpGame.Test.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Start the game")]
         [NUnit.Framework.CategoryAttribute("acceptance")]
-        [NUnit.Framework.TestCaseAttribute("0", "0", "0", "100", "0", "0", null)]
-        public void StartTheGame(string numPositionsBefore, string xPositionBefore, string yPositionBefore, string numPositionsAfter, string xPositionAfter, string yPositionAfter, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("", "0", "0", "0", "0", "DEFAULT_NAME", "100", "0", "0", "0", null)]
+        public void StartTheGame(string characterNameBefore, string numPositionsBefore, string xPositionBefore, string yPositionBefore, string numberOfMovesBefore, string characterNameAfter, string numPositionsAfter, string xPositionAfter, string yPositionAfter, string numberOfMovesAfter, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "acceptance"};
@@ -87,12 +87,16 @@ namespace LevelUpGame.Test.Features
             }
             string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("characterNameBefore", characterNameBefore);
             argumentsOfScenario.Add("numPositionsBefore", numPositionsBefore);
             argumentsOfScenario.Add("xPositionBefore", xPositionBefore);
             argumentsOfScenario.Add("yPositionBefore", yPositionBefore);
+            argumentsOfScenario.Add("numberOfMovesBefore", numberOfMovesBefore);
+            argumentsOfScenario.Add("characterNameAfter", characterNameAfter);
             argumentsOfScenario.Add("numPositionsAfter", numPositionsAfter);
             argumentsOfScenario.Add("xPositionAfter", xPositionAfter);
             argumentsOfScenario.Add("yPositionAfter", yPositionAfter);
+            argumentsOfScenario.Add("numberOfMovesAfter", numberOfMovesAfter);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Start the game", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 4
 this.ScenarioInitialize(scenarioInfo);
@@ -105,25 +109,37 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 5
-    testRunner.Given(string.Format("The number of positions is {0}", numPositionsBefore), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("The character name is {0}", characterNameBefore), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 6
-    testRunner.And(string.Format("the current x position is {0}", xPositionBefore), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And(string.Format("number of positions is {0}", numPositionsBefore), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 7
-    testRunner.And(string.Format("the current y position is {0}", yPositionBefore), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And(string.Format("the current x position is {0}", xPositionBefore), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 8
-    testRunner.When("the game starts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.And(string.Format("the current y position is {0}", yPositionBefore), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 9
-    testRunner.Then(string.Format("The number of positions will be {0}", numPositionsAfter), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.And(string.Format("the number of moves before initiliazation is {0}", numberOfMovesBefore), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 10
-    testRunner.And(string.Format("the current x position is {0}", xPositionAfter), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.When("the game starts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 11
+    testRunner.Then(string.Format("The character name is {0}", characterNameAfter), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 12
+    testRunner.And(string.Format("the number of positions will be {0}", numPositionsAfter), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 13
+    testRunner.And(string.Format("the current x position is {0}", xPositionAfter), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 14
     testRunner.And(string.Format("the current y position is {0}", yPositionAfter), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 15
+    testRunner.And(string.Format("the number of moves after initiliazation is {0}", numberOfMovesAfter), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
