@@ -9,8 +9,7 @@ Scenario Outline: Start the game
     And the number of moves before initiliazation is <numberOfMovesBefore>
     When game starts
     Then the character name should be <characterNameAfter>
-    And the number of positions will be <numPositionsAfter>
-    And the current x position should be <xPositionAfter>
+     And the current x position should be <xPositionAfter>
     And the current y position should be <yPositionAfter>
     And the number of moves after initiliazation is <numberOfMovesAfter>
     Examples:

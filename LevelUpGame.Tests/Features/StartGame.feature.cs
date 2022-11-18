@@ -130,15 +130,12 @@ this.ScenarioInitialize(scenarioInfo);
     testRunner.Then(string.Format("the character name should be {0}", characterNameAfter), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 12
-    testRunner.And(string.Format("the number of positions will be {0}", numPositionsAfter), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+     testRunner.And(string.Format("the current x position should be {0}", xPositionAfter), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 13
-    testRunner.And(string.Format("the current x position should be {0}", xPositionAfter), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 14
     testRunner.And(string.Format("the current y position should be {0}", yPositionAfter), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 15
+#line 14
     testRunner.And(string.Format("the number of moves after initiliazation is {0}", numberOfMovesAfter), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }

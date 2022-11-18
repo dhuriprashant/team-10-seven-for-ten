@@ -7,9 +7,9 @@ using levelup;
 namespace DotNetExample.Tests.Steps
 {
     [Binding]
-    public class StartGame
+    public class StartGameSteps
     {
-        /*
+        
         GameController testObj = new GameController();
         string characterNameBefore;
         int numPositionsBefore, xPositionBefore, yPositionBefore, numberOfMovesBefore, numPositionsAfter, xPositionAfter, yPositionAfter, numberOfMovesAfter;
@@ -57,13 +57,7 @@ namespace DotNetExample.Tests.Steps
         [Then(@"the character name should be (.*)")]
         public void checkCharacterName(string characterNameAfter)
         {
-            StringAssert.AreEqualIgnoringCase(characterNameAfter, this.gameStatus.playerName);
-        }
-
-        [Then(@"the number of positions will be (.*)")]
-        public void checkNumberOfPositions(int endX)
-        {
-            Assert.AreEqual(endX, testObj.getTotalPositions());
+            StringAssert.AreEqualIgnoringCase(characterNameAfter, this.gameStatus.characterName);
         }
 
         [Then(@"the current x position should be (.*)")]
@@ -77,8 +71,7 @@ namespace DotNetExample.Tests.Steps
         public void checkYCoordinates(int endY)
         {
             
-            Assert.NotNull(this.currentPosition, "Expected position not null");
-            Assert.AreEqual(endY, this.currentPosition.Y);
+            Assert.AreEqual(endY, gameStatus.currentPosition.y);
             
         }
 
@@ -87,7 +80,7 @@ namespace DotNetExample.Tests.Steps
         {
             Assert.AreEqual(0, numberOfMovesAfter);
         }
-        */
+        
         
     }
 
